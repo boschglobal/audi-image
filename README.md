@@ -1,3 +1,11 @@
+**FORK WORK IN PROGRESS**
+
+This fork of [CARFAC](https://github.com/google/carfac) is just forked! Code modifications and all legal stuff are on their way. Please be patient!
+
+**FORK WORK IN PROGRESS**
+
+---
+
 # CARFAC
 
 The CAR-FAC (cascade of asymmetric resonators with fast-acting compression) is a

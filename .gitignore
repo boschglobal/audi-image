@@ -1,12 +1,8 @@
-*.o
-*.a
-*.dblite
-# Matlab ASV autosave files
+# Personal files with notes when writing specific code
+*__NOTES*
+
+# Exclude files from remote repository by file type
 *.asv
-# Pychache files
-*.pyc
-# Graphical files
-*.mpg
-*.png
-# VScode files
-cpp/.vs/*
+*.pptx
+
+# Exclude files from remote repository

@@ -1,8 +1,15 @@
+# Exclude subfolders
+.vscode
+
 # Personal files with notes when writing specific code
 *__NOTES*
+experimental__*
+demo__*
+productive__*
 
 # Exclude files from remote repository by file type
 *.asv
 *.pptx
 
 # Exclude files from remote repository
+~$*

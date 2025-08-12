@@ -40,9 +40,9 @@ function colormapMatrix = ReturnColormapMatrix(nameOfColormapAsCharArray)
             colormapMatrix = jet;
         case 'grayInverted'
             colormapMatrix = flip(gray);
-        case 'artemis'
-            load('ArtemisColormap.mat', 'colormapAsUsedInArtemis')
-            colormapMatrix = colormapAsUsedInArtemis;
+        case 'analyzer'
+            load('CustomColormap.mat', 'analyzerColormap')
+            colormapMatrix = analyzerColormap;
         otherwise
             disp('No valid colormap was passed! Choosing turbo.')
             colormapMatrix = turbo;

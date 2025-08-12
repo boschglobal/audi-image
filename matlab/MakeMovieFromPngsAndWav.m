@@ -1,3 +1,11 @@
+% Copyright (c) 2025 - for information on the respective copyright owner 
+% see the NOTICE file or the repository <https://github.com/boschglobal/audi-image>
+%
+% SPDX-License-Identifier: Apache-2.0
+%
+% This source code is derived from CARFAC (forked 2025-08-08)
+%     https://github.com/google/carfac
+%
 % Copyright 2013 The CARFAC Authors. All Rights Reserved.
 % Author: Richard F. Lyon
 %
@@ -16,20 +24,65 @@
 % See the License for the specific language governing permissions and
 % limitations under the License.
 
-function MakeMovieFromPngsAndWav(frame_rate, png_name_pattern, ...
-  wav_filename, out_filename)
+% -------------------------------------------------------------------------
+% Make movie file from images and audio data
+% -------------------------------------------------------------------------
+% This function converts images and audio data via FFmpeg converter to a
+% movie.
+%
+% Modifications done here don't change the functionality at all, they're
+% done to keep this function working and add some independence of machine
+% type.
+% Below our modifications are summarized in one big list. Down in the code 
+% then some of the "core" modifications and/or additional comments are 
+% marked with "AudiImage" to somehow distinguish between original comments 
+% and comments by us.
+%
+% - code indentation optimized
+% - path to FFmpeg executable adjusted
+% - path to FFmpeg executable is chosen by machine type (Linux/Windows)
+% - "system(['rm "'...);" removed since it doesn't work on Windows machines
+% - therefore FFmpeg parameter '-y' introduced which overwrites output file
+% - movie file is converted addionally from mpeg to mp4. Direct conversion 
+%   to mp4 I was not able to realize (video stream was always corrupted). 
+%   Background to have mp4 is the seemless import to PowerPoint.
+% - "png_name_pattern" in "ffmpeg_command" is enclosed with quotation marks
+%   (this is necessary, if filename contains blank character(s))
 
-system(['rm "', out_filename, '"']);
+function MakeMovieFromPngsAndWav( ...
+    frame_rate, ...
+    png_name_pattern, ...
+    wav_filename, ...
+    out_filename ...
+    )
 
-if ~exist(wav_filename, 'file')
-  error('wave file is missing', wav_filename)
+    if ~exist(wav_filename, 'file')
+        error(['Audio file is missing ', wav_filename])
+    end
+
+    % AudiImage: Choose path to FFmpeg executable depending on machine type
+    switch computer
+        case 'GLNXA64'
+            PATH_TO_FFmpeg = '/usr/bin/ffmpeg';
+        case 'PCWIN64'
+            PATH_TO_FFmpeg = 'C:\Users\kkm2fe\Data\Werkzeuge\ffmpeg\bin\ffmpeg.exe';
+        otherwise
+            error('Computer type could not be determined. Path to FFmpeg could not be set.')
+    end
+    
+    % AudiImage: Original implementation: mpeg = Video: mpeg1video & Audio: mp2
+    ffmpeg_command = [PATH_TO_FFmpeg ...
+        ' -r ' num2str(frame_rate) ...
+        ' -i "' png_name_pattern '"' ...
+        ' -i "' wav_filename '"' ...
+        ' -b:v 1024k' ...
+        ' -y "' out_filename '"'];
+    system(ffmpeg_command);
+    
+    % AudiImage: Convert mpeg to mp4 = Video: h264 & Audio: aac
+    ffmpeg_command = [PATH_TO_FFmpeg ...
+        ' -i "' out_filename '"' ...
+        ' -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2"' ...
+        ' -y "' replace(out_filename,'.mpg','.mp4') '"'];
+    system(ffmpeg_command);
 end
-
-ffmpeg_command = ['/opt/local/bin/ffmpeg' ...
-  ' -r ' num2str(frame_rate) ...
-  ' -i ' png_name_pattern ...
-  ' -i "' wav_filename ...
-  '" -b:v 1024k' ...
-  ' "' out_filename '"'];
-
-system(ffmpeg_command);

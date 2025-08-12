@@ -4,6 +4,18 @@ This fork of [CARFAC](https://github.com/google/carfac) is just forked! Code mod
 
 **FORK WORK IN PROGRESS**
 
+<!-- TODO
+
+Note: Path to FFmpeg converter has to be checked manually by user when
+      running CARFAC_SAI the first time!
+
+provide new test files for hacking scripts as `../test_data` is deleted
+- `../matlab/CARFAC_binaural.m`
+- `../matlab/CARFAC_hacking.m`
+- `../matlab/CARFAC_SAI_hacking.m`
+
+-->
+
 ---
 
 # CARFAC

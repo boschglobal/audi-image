@@ -65,7 +65,7 @@ function MakeMovieFromPngsAndWav( ...
         case 'GLNXA64'
             PATH_TO_FFmpeg = '/usr/bin/ffmpeg';
         case 'PCWIN64'
-            PATH_TO_FFmpeg = 'C:\Users\kkm2fe\Data\Werkzeuge\ffmpeg\bin\ffmpeg.exe';
+            PATH_TO_FFmpeg = 'C:\Path\To\ffmpeg.exe';
         otherwise
             error('Computer type could not be determined. Path to FFmpeg could not be set.')
     end

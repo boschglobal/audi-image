@@ -1,7 +1,9 @@
 %% Path settings
 basePathToData = 'C:\Base\Path\To\Data';
 pathToAudioFile = fullfile(basePathToData, 'Relative\Path\To\AudioFile');
-pathToResults = fullfile(basePathToData, 'Relative\Path\To\Results');
+
+basePathToResults = 'C:\Base\Path\To\Results';
+pathToResults = fullfile(basePathToResults, 'Relative\Path\To\Results');
 
 %% SAI compute and process options
 isBatchMode = false;
@@ -22,8 +24,8 @@ processOptions.isProcessSpectrogram = false;
 processOptions.isProcessMovieWithComposedImage = true;
 processOptions.isProcessMovieWithMovieGrams = false;     % if 'true', it then requires a long time!
 processOptions.isProcessMovieWithCompleteGrams = false;  % if 'true', it then requires a long time!
-    
-processOptions.NAME_OF_COLORMAP = 'turbo';  % 'turbo' 'grayInverted' 'artemis' 'jet'
+
+processOptions.NAME_OF_COLORMAP = 'turbo';  % 'turbo' 'grayInverted' 'analyzer' 'jet'
 processOptions.SPECTROGRAM_TYPE_OF_WINDOW = 'hann';
 processOptions.SPECTROGRAM_NUMBER_OF_DFT_POINTS = 2048;
 processOptions.SPECTROGRAM_WINDOW_OVERLAP_IN_PERCENT = 50;

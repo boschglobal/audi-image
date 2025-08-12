@@ -1,3 +1,3 @@
 %% Path settings
-basePathToData = 'C:\Base\Path\To\Data';
+basePathToResults = 'C:\Base\Path\To\Results';
 subfolderToResults = 'Results';

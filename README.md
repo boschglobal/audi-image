@@ -1,4 +1,4 @@
-# AudiImage
+# AudiImage <!-- omit in toc -->
 
 [![License: Apache 2.0][license-badge]][license-text]
 
@@ -14,23 +14,22 @@ in touch with Richard F. Lyon's textbook ["Human and Machine Hearing: Extracting
 Meaning from Sound"][hmh-doi][^hmh-reference][^dicks-homepage], where chapter 21
 gives you a comprehensive explanation and description.
 
-![Logo of AudiImage](resources/AudiImage_GitHubSocialMediaPreview.png)
+![Logo of AudiImage](resources/logoOfAudiImage.png)
 
 
 
 ## Table of Contents <!-- omit in toc -->
 <!-- TOC -->
 
-- [AudiImage](#audiimage)
-  - [Getting Started](#getting-started)
-    - [Quick start](#quick-start)
-    - [Requirements](#requirements)
-  - [Contribution Guidelines](#contribution-guidelines)
-  - [About](#about)
-    - [Maintainers](#maintainers)
-    - [CARFAC](#carfac)
-    - [Used Encryption](#used-encryption)
-    - [License](#license)
+- [Getting Started](#getting-started)
+  - [Quick start](#quick-start)
+  - [Requirements](#requirements)
+- [Contribution Guidelines](#contribution-guidelines)
+- [About](#about)
+  - [Maintainers](#maintainers)
+  - [CARFAC](#carfac)
+  - [Used Encryption](#used-encryption)
+  - [License](#license)
 
 <!-- /TOC -->
 
@@ -41,17 +40,17 @@ gives you a comprehensive explanation and description.
 In the root folder, you can find the starter scripts, which serve as the entry
 point to AudiImage:
 * `RunComputationOfSai.m` to easily run a computation of a SAI (get summary and
-  data MAT files; **mandatory to run first**, if no SAI dataset is available)
+  data MAT files; **mandatory to run first**, if no SAI dataset is available).
 * `RunProcessingOfSai.m` to run a (re-)processing of an existing SAI dataset
-  (get movie, "grams", ...)
-* `ShowSai.mlapp` is an interactive MATLAB App to analyze an existing SAI dataset
+  (get movie, "grams", ...).
+* `ShowSai.mlapp` is an interactive MATLAB App to analyze an existing SAI dataset.
 * For the above listed scripts there are associated parameter files, which are
   **mandatory** to configure before running the scripts. The files are called
   `ParametersToComputeSai.m`, `ParametersToProcessSai.m` and
   `ParametersToShowSai.m`.
 
-In `script` and `helper` folder you can find core and helper functions to run
-the computation and processing of SAI datasets.
+In `script` and `helper` folder you can find core and helper functions of
+AudiImage to run the computation and processing of SAI datasets.
 
 In `matlab` folder you can find the MATLAB implementation of the CARFAC model
 and the modified SAI implementation.

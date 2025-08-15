@@ -7,7 +7,7 @@ pathToResults = fullfile(basePathToResults, 'Relative\Path\To\Results');
 
 %% SAI compute and process options
 isBatchMode = false;
-isProcessSaiAfterComputation = true;
+isProcessSaiAfterComputation = false;
 
 computeOptions.isWavFile32bitIEEEFloatFormat = false;
 computeOptions.isDisplaySaiDuringComputation = false;
@@ -16,16 +16,17 @@ computeOptions.isConvertStereoToMono = false;
 computeOptions.CHANNEL_FROM_AUDIO_SIGNAL_TO_EXTRACT = 1;
 computeOptions.DURATION_IN_SECONDS_TO_PAD_AUDIO_SIGNAL = 0;
 computeOptions.REDUCTION_OF_FULL_SCALE_AMPLITUDE_IN_dB = -30;
-computeOptions.SCALE_FACTOR_TO_CONVERT_REAL_SOUND_PRESSURE = 40; %2; %20;
-
-processOptions.isProcessCochleagram = false;
-processOptions.isProcessPitchogram = false;
-processOptions.isProcessSpectrogram = false;
-processOptions.isProcessMovieWithComposedImage = true;
-processOptions.isProcessMovieWithMovieGrams = false;     % if 'true', it then requires a long time!
-processOptions.isProcessMovieWithCompleteGrams = false;  % if 'true', it then requires a long time!
+computeOptions.SCALE_FACTOR_TO_CONVERT_REAL_SOUND_PRESSURE = 2; % 2 20 40
 
 processOptions.NAME_OF_COLORMAP = 'turbo';  % 'turbo' 'grayInverted' 'analyzer' 'jet'
+
+processOptions.isProcessCochleagram = true;
+processOptions.isProcessPitchogram = true;
+processOptions.isProcessMovieWithComposedImage = true;
+processOptions.isProcessMovieWithMovieGrams = false;     % If true, it then requires a long time!
+processOptions.isProcessMovieWithCompleteGrams = false;  % If true, it then requires a long time!
+
+processOptions.isProcessSpectrogram = false;
 processOptions.SPECTROGRAM_TYPE_OF_WINDOW = 'hann';
 processOptions.SPECTROGRAM_NUMBER_OF_DFT_POINTS = 2048;
 processOptions.SPECTROGRAM_WINDOW_OVERLAP_IN_PERCENT = 50;

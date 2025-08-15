@@ -61,6 +61,9 @@ appearance of markdown files.
 The `docs` folder includes more detailed [documentation](docs/README.md) on how
 to use AudiImage.
 
+> **Note:** To avoid any start-up difficulties adjust the `PATH_TO_FFmpeg` in
+> `matlab/MakeMovieFromPngsAndWav.m` to match your specific installation.
+
 ### Quick start
 
 ![Quick start cheat sheet](resources/START_HERE.png)

@@ -23,6 +23,9 @@
     - [optional: Configure `ParametersToShowSai.m`](#optional-configure-parameterstoshowsaim)
       - [`%% Path settings`](#-path-settings-2)
     - [analyzed SAI Dataset in `[pathToResults]`](#analyzed-sai-dataset-in-pathtoresults)
+- [Demo and test files for quick hands-on](#demo-and-test-files-for-quick-hands-on)
+  - [`docs/demo/`](#docsdemo)
+  - [`docs/test/`](#docstest)
 
 <!-- /TOC -->
 
@@ -545,3 +548,46 @@ shown in the following scheme.
 - Not shown but there might be (depending on computation parameters) the
   `computeOptions.REDUCTION_OF_FULL_SCALE_AMPLITUDE_IN_dB` included in the
   filename.
+
+
+
+## Demo and test files for quick hands-on
+
+[Our paper][kuka-fischer-link][^kuka-fischer-reference] describes in Fig. 2 and
+3 some basic stimuli, which demonstrate the remarkable abilities of auditory
+images. These audio files are made available here as demo files. Additionally,
+some more related demo files are provided which differ in either the carrier
+frequency or the evoking roughness sensation frequency. Just explore!
+
+There are two more test files provided, which were used in development of
+AudiImage for different purposes and for generating images for documentation.
+Feel free to use them if needed.
+
+
+### `docs/demo/`
+| File | Remarks |
+| :- | :- |
+| `sine_AM_stationary_500Hz_70Hz_1Pa_ShortSignal_PinkNoise_FullScale_20ms_16bit.wav` | 3x sine with carrier @ 0.5k Hz + roughness sensation @ 70 Hz |
+| `sine_AM_stationary_1kHz_35Hz_1Pa_ShortSignal_PinkNoise_FullScale_20ms_16bit.wav` | 3x sine with carrier @ 1k Hz + roughness sensation @ 35 Hz |
+| `sine_AM_stationary_1kHz_70Hz_1Pa_ShortSignal_PinkNoise_FullScale_20ms_16bit.wav` | 3x sine with carrier @ 1k Hz + roughness sensation @ 70 Hz, refer to Fig. 3. |
+| `sine_AM_stationary_1kHz_140Hz_1Pa_ShortSignal_PinkNoise_FullScale_20ms_16bit.wav` | 3x sine with carrier @ 1k Hz + roughness sensation @ 140 Hz |
+| `sine_AM_stationary_4kHz_70Hz_1Pa_ShortSignal_PinkNoise_FullScale_20ms_16bit.wav` | 3x sine with carrier @ 4k Hz + roughness sensation @ 70 Hz |
+| `sine_stationary_500Hz_1Pa_ShortSignal_PinkNoise_FullScale_20ms_16bit.wav` | 3x sine with 0.5k Hz. |
+| `sine_stationary_1kHz_1Pa_ShortSignal_PinkNoise_FullScale_20ms_16bit.wav` | 3x sine with 1k Hz, refer to Fig. 2. |
+| `sine_stationary_4kHz_1Pa_ShortSignal_PinkNoise_FullScale_20ms_16bit.wav` | 3x sine with 4k Hz. |
+
+
+### `docs/test/`
+
+| File | Remarks |
+| :- | :- |
+| `short_test_signal_16bit.wav` | Three tones, short signal of 1 s. Main purpose: Testing. |
+| `short_test_signal_2_16bit.wav` | There is an impulsive component with a repetition frequency of 1 s. Watch for this in SAI and pitchogram! |
+
+
+
+<!-- Link shorteners and footnotes -->
+
+[kuka-fischer-link]: https://pub.dega-akustik.de/DAGA_2024/files/upload/paper/44.pdf
+
+[^kuka-fischer-reference]: M. Kuka and M. Fischer, “Hearing Equivalent Signal Analysis by Auditory Images in Industrial Applications,” in Fortschritte der Akustik - DAGA 2024, Hannover, Mar. 2024, pp. 1218–1221. [Online]. Available: https://pub.dega-akustik.de/DAGA_2024/files/upload/paper/44.pdf

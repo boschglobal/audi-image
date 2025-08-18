@@ -14,7 +14,7 @@
 % Processing a SAI means: 
 % - get movie of the SAI (movie file and image files of every frame)
 % - get figure/image of complete cochleagram
-% - get figure/image of complete pitochogram
+% - get figure/image of complete pitchogram
 % - get figure/image of spectrogram.
 
 

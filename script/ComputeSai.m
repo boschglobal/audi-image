@@ -179,7 +179,7 @@ end
 %% Helper functions
 
 function outputSignal = ConvertStereoChannelsToMonoChannel(inputSignal)
-    outputSignal = mean(inputSignal.').';
+    outputSignal = mean(inputSignal,2);
 end
 
 function outputSignal = ExtractChannelFromAudioSignal(inputSignal, channelToExtract)

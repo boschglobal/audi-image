@@ -192,6 +192,13 @@ script `RunComputationOfSai.m` with MATLAB:
 
 ![Run all sections button](../resources/runScriptInMatlab.png)
 
+It could happen that a message pops up from the MATLAB Editor which states that
+`.../RunComputationOfSai.m` is not found in the current folder or in the MATLAB
+path. Please click on the button "Change Folder", as shown in the screenshot to
+proceed:
+
+!["Change Folder", when run script is not found](../resources/changeFolderInMatlabEditor.png)
+
 If `isBatchMode = true` then you will be faced with an options dialogue, where
 you have to select if you want choose multiple audio files or a whole folder
 with audio files:
@@ -390,6 +397,13 @@ When `ParametersToProcessSai.m` is appropriately parameterized then just run the
 script `RunProcessingOfSai.m` with MATLAB:
 
 ![Run all sections button](../resources/runScriptInMatlab.png)
+
+It could happen that a message pops up from the MATLAB Editor which states that
+`.../RunProcessingOfSai.m` is not found in the current folder or in the MATLAB
+path. Please click on the button "Change Folder", as shown in the screenshot to
+proceed:
+
+!["Change Folder", when run script is not found](../resources/changeFolderInMatlabEditor.png)
 
 If `isBatchMode = true` then you will be faced with an options dialogue, where
 you have to select if you want choose multiple summary files or a whole folder

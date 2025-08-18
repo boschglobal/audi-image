@@ -17,5 +17,5 @@ function [estimatedTimeLeft, estimatedTimeLeftAsString] = ReturnEstimatedTimeLef
     )
     estimatedTimeLeft.mean = (estimatedTimeLeft.mean * (numberOfActualFile-1) + durationOfLastRun) / numberOfActualFile;
     estimatedTimeLeft.total = estimatedTimeLeft.mean * (totalNumberOfFiles - numberOfActualFile);
-    estimatedTimeLeftAsString = datestr(seconds(estimatedTimeLeft.total),'HH:MM:SS');
+    estimatedTimeLeftAsString = char(duration(0, 0, estimatedTimeLeft.total, 'Format', 'hh:mm:ss'));
 end

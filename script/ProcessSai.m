@@ -11,7 +11,7 @@
 % Processing a SAI means:
 % - get movie of the SAI (movie file and image files of every frame)
 % - get figure/image of complete cochleagram
-% - get figure/image of complete pitochogram
+% - get figure/image of complete pitchogram
 % - get figure/image of spectrogram.
 
 function ProcessSai( ...
@@ -40,7 +40,19 @@ function ProcessSai( ...
 
     
     disp([SCRIPTNAME_FOR_DISPCOMMANDS,'Load summary file...'])
-    load(fullfile(pwd,filenameOfAudioFileSaiComputationSummary))
+    load(fullfile(pwd,filenameOfAudioFileSaiComputationSummary), ...
+        'audioSignalForSaiComputation', ...
+        'samplingFrequencyOfAudioSignal', ...
+        'filenameOfAudioFile', ...
+        'subfolderForAudioFile', ...
+        'nameSuffixDependingOnWavType', ...
+        'fullFilenameOfSaiMatFile', ...
+        'fullFilenameOfCompleteCochleagramMatFile', ...
+        'fullFilenameOfCompletePitchogramMatFile', ...
+        'fullFilenameOfMovieCochleagramMatFile', ...
+        'fullFilenameOfMoviePitchogramMatFile', ...
+        'frameRateOfSaiMovie' ...
+        );
     disp(['   Summary file:        ',filenameOfAudioFileSaiComputationSummary])
     disp(['   from path:           ',pathToResults])
     
@@ -58,11 +70,11 @@ function ProcessSai( ...
         disp([SCRIPTNAME_FOR_DISPCOMMANDS,'Make movie with composed image...'])
 
         disp([SCRIPTNAME_FOR_DISPCOMMANDS,'      Set file and folder names...'])
-        folderForSaiFramesWithComposedImage = [nameOfAudioFile,nameSuffixDependingOnWavType,nameSuffixDependingOnColormap,'_ComposedImage'];
+        filenameOfSaiMovieFile = [nameOfAudioFile,nameSuffixDependingOnWavType,nameSuffixDependingOnColormap,'_ComposedImage.mpg'];
+        [~,folderForSaiFramesWithComposedImage,~] = fileparts(filenameOfSaiMovieFile);
         fullFolderForSaiFramesWithComposedImage = fullfile(subfolderForSaiFrames,folderForSaiFramesWithComposedImage);
         MkdirIfFolderNotExists(subfolderForSaiFrames)
         mkdir(subfolderForSaiFrames,folderForSaiFramesWithComposedImage);
-        filenameOfSaiMovieFile = [nameOfAudioFile,nameSuffixDependingOnWavType,nameSuffixDependingOnColormap,'_ComposedImage.mpg'];
 
         disp([SCRIPTNAME_FOR_DISPCOMMANDS,'      Process frames for movie...'])
         ProcessFramesForMovieWithComposedImage( ...
@@ -98,11 +110,11 @@ function ProcessSai( ...
         disp([SCRIPTNAME_FOR_DISPCOMMANDS,'Make movie with full-fledged figures with cochleagram and pitchogram like in the movie...'])
 
         disp([SCRIPTNAME_FOR_DISPCOMMANDS,'      Set file and folder names...'])
-        folderForSaiFramesWithMovieGrams = [nameOfAudioFile,nameSuffixDependingOnWavType,nameSuffixDependingOnColormap,'_MovieGrams'];
+        filenameOfSaiMovieFileWithMovieGrams = [nameOfAudioFile,nameSuffixDependingOnWavType,nameSuffixDependingOnColormap,'_MovieGrams.mpg'];
+        [~,folderForSaiFramesWithMovieGrams,~] = fileparts(filenameOfSaiMovieFileWithMovieGrams);
         fullFolderForSaiFramesWithMovieGrams = fullfile(subfolderForSaiFrames,folderForSaiFramesWithMovieGrams);
         MkdirIfFolderNotExists(subfolderForSaiFrames)
         mkdir(subfolderForSaiFrames,folderForSaiFramesWithMovieGrams);
-        filenameOfSaiMovieFileWithMovieGrams = [nameOfAudioFile,nameSuffixDependingOnWavType,nameSuffixDependingOnColormap,'_MovieGrams.mpg'];
 
         disp([SCRIPTNAME_FOR_DISPCOMMANDS,'      Process frames for movie...'])
         ProcessFramesForMovieWithFullfledgedFiguresWithMovieGrams( ...
@@ -139,11 +151,11 @@ function ProcessSai( ...
         disp([SCRIPTNAME_FOR_DISPCOMMANDS,'Make movie with full-fledged figures with complete cochleagram and pitchogram...'])
 
         disp([SCRIPTNAME_FOR_DISPCOMMANDS,'      Set file and folder names...'])
-        folderForSaiFramesWithCompleteGrams = [nameOfAudioFile,nameSuffixDependingOnWavType,nameSuffixDependingOnColormap,'_CompleteGrams'];
+        filenameOfSaiMovieFileWithCompleteGrams = [nameOfAudioFile,nameSuffixDependingOnWavType,nameSuffixDependingOnColormap,'_CompleteGrams.mpg'];
+        [~,folderForSaiFramesWithCompleteGrams,~] = fileparts(filenameOfSaiMovieFileWithCompleteGrams);
         fullFolderForSaiFramesWithCompleteGrams = fullfile(subfolderForSaiFrames,folderForSaiFramesWithCompleteGrams);
         MkdirIfFolderNotExists(subfolderForSaiFrames)
         mkdir(subfolderForSaiFrames,folderForSaiFramesWithCompleteGrams);
-        filenameOfSaiMovieFileWithCompleteGrams = [nameOfAudioFile,nameSuffixDependingOnWavType,nameSuffixDependingOnColormap,'_CompleteGrams.mpg'];
 
         disp([SCRIPTNAME_FOR_DISPCOMMANDS,'      Process frames for movie...'])
         ProcessFramesForMovieWithFullfledgedFiguresWithCompleteGrams( ...

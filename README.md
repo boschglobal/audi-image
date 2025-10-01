@@ -2,7 +2,7 @@
 
 [![License: Apache 2.0][license-badge]][license-text]
 
-AudiImage is an Open Source Project which delivers a new dimension in acoustic
+AudiImage is an Open Source project which delivers a new dimension in acoustic
 analysis, especially when human hearing is to be mimicked and when machine
 hearing is to be performed. This repository is a modified version of the
 [CARFAC][carfac-project] project. Especially the SAI (Stabilized Auditory Image)
@@ -27,6 +27,7 @@ gives you a comprehensive explanation and description.
 - [Contribution Guidelines](#contribution-guidelines)
 - [About](#about)
   - [Maintainers](#maintainers)
+  - [Notice on modifications](#notice-on-modifications)
   - [CARFAC](#carfac)
   - [Used Encryption](#used-encryption)
   - [License](#license)
@@ -50,7 +51,9 @@ point to AudiImage:
   `ParametersToShowSai.m`.
 
 In `script` and `helper` folder you can find core and helper functions of
-AudiImage to run the computation and processing of SAI datasets.
+AudiImage which are called by the above mentioned starter scripts. These scripts
+are not meant to run directly, but are used to run the computation and
+processing of SAI datasets.
 
 In `matlab` folder you can find the MATLAB implementation of the CARFAC model
 and the modified SAI implementation.
@@ -89,6 +92,23 @@ Please read [our contribution guidelines](CONTRIBUTING.md).
 
 * [Michael Kuka][michael-kuka-github] (<michael.kuka@de.bosch.com>)
 
+### Notice on modifications
+
+To serve transparency on which modifications were done through the fork process from the original project a brief list is given here on the fundamental modifications. Detailed modification notices are given then directly in the code and are marked with comments starting with "AudiImage".
+
+| Action | Item (folder, file, ...) | Remark or description |
+| :- | :- | :- |
+| delete | `/cpp` | C++ implementation |
+| delete | `/python` | Python implementation |
+| delete | `/test_data` | Test data |
+| delete | `/matlab/CARFAC_Compare_CPP_Test_Data.m` |  |
+| delete | `/matlab/CARFAC_GenerateTestData.m` |  |
+| modify | `/matlab/SAI_RunLayered.m` | See "AudiImage" comments in code. |
+| modify | `/matlab/MakeMovieFromPngsAndWav.m` | See "AudiImage" comments in code. |
+| add | `RunComputationOfSai.m`, `RunProcessingOfSai.m`, `ParametersToComputeSai.m`, `ParametersToProcessSai.m`, and `/script` | Core scripts of AudiImage modification |
+| add | `ShowSai.mlapp`, `ParametersToShowSai.m`, `/script/ShowSaiExportDiagrams.mlapp` and `/script/RecomputeMoviePitchogramForShowSai.m` | AudiImage GUI for analysis of SAI |
+| add | `/helper` | Helper functions |
+
 ### CARFAC
 
 > This section is taken from the original README.md with slight modifications to
@@ -112,9 +132,6 @@ This repository does not contain or use encryption algorithms.
 
 AudiImage is open-sourced under the Apache-2.0 license. See the
 [LICENSE](LICENSE) file for details.
-
-For a list of other open source components included in AudiImage, see the
-file [3rd-party-licenses.txt](3rd-party-licenses.txt).
 
 
 
